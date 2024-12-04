@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Counter.less';
 
 export const Counter = () => {
     const [count, setCount] = useState(0)
@@ -9,7 +10,7 @@ export const Counter = () => {
 
     return (
         <div>
-            <button onClick={increment}>{count}</button>
+            <button onClick={increment}>Count: {count}</button>
         </div>
     );
 };

@@ -8,7 +8,17 @@ export function buildLoaders(): RuleSetRule[] {
         exclude: /node_modules/,
     }
 
+    const lessLoader = {
+        test: /\.less$/i,
+        use: [
+            "style-loader",
+            "css-loader",
+            "less-loader",
+        ],
+    }
+
     return [
-        typescriptLoader
+        typescriptLoader,
+        lessLoader
     ]
 }
