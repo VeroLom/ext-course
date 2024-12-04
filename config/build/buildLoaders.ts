@@ -14,7 +14,16 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
         test: /\.less$/i,
         use: [
             options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            "css-loader",
+            {
+                loader: "css-loader",
+                options: {
+                    modules: {
+                        localIdentName: options.isDev
+                            ? '[path][name]__[local]--[hash:base64:4]'
+                            : '[hash:base64:8]'
+                    },
+                }
+            },
             "less-loader",
         ],
     }
